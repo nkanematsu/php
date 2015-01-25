@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="phingtest" default="build">
+  <target name="build" depends="init,phpunit"></target>
+  <target name="init">
+    <delete dir="reports"/>
+    <mkdir dir="reports"/>
+  </target>
+  <target name="phpunit">
+    <exec command="/usr/local/bin/phpunit
+      --color
+      --log-junit reports/phpunit.xml
+      ./ "
+    />
+  </target>
+</project>
